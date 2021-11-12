@@ -44,10 +44,7 @@ struct Line {
     }
 
     bool parallel(const Line& other) const {
-        if(other.A == 0 || other.B == 0) {
-            return false;
-        }
-        return eq(this->A/other.A, this->B/other.B) && this->C!=other.C;
+        return eq(this->A*other.B = this->B*other.A) && this->C!=other.C;
     }
 
     Line parallel(const Point& p) {
@@ -55,10 +52,7 @@ struct Line {
     }
 
     bool perpendicular(const Line& other) const {
-        if(other.A == 0 || other.B == 0) {
-            return false;
-        }
-        return eq(this->A/other.B, this->B/other.A);
+        return eq(this->A*other.A, this->B*other.B);
     }
 
     Line perpendicular(const Point& p) {
@@ -69,6 +63,7 @@ struct Line {
         out<< A << "x + "<< B<< "y + "<< C<< " = 0";
     }
 };
+
 
 ostream& operator<<(ostream& out, const Line& l) {
     l.print(out);
